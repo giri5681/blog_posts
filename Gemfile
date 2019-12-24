@@ -66,7 +66,7 @@ gem "paperclip", "~> 6.0.0"
 gem 'pry-byebug', '~> 3.4'
 gem 'devise'
 gem "closure_tree"
-gem "bootstrap-sass", "~> 3.3.6"
+gem "bootstrap-sass", "~> 3.4.1"
 gem 'jquery-rails'
 gem "toastr-rails"
 gem 'font-awesome-sass', '~> 5.0', '>= 5.0.13'
