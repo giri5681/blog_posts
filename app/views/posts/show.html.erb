@@ -1,0 +1,26 @@
+<% if @user_post %>
+  <div class="page-header">
+    <%= link_to edit_post_path(@user_post), class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit
+    <% end %>
+  </div>
+<% end %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+<p>
+  <%= image_tag @post.picture ? @post.picture.image.url(:thumb) : '' %></dd>
+</p>
+
+<p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p><br>
+<%= button_to 'Like', post_likes_path(@post), method: :post, class: "btn btn-primary", remote: true %>
+
+<div class="row">
+  <%= render "comments/comment_form", post: @post, parent_id: nil, comment_new: @comment %>
+  <br>
+  <%= comments_tree_for @supports.comments_tree.hash_tree(limit_depth: 5),
+      @post, @supports.comment %>
+</div>
